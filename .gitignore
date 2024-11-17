@@ -130,3 +130,10 @@ dmypy.json
 *.\#*
 data/
 pyodide
+
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+*.code-workspace
