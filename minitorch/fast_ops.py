@@ -169,6 +169,7 @@ def tensor_map(
         in_strides: Strides,
     ) -> None:
         # TODO: Implement for Task 3.1.
+
         raise NotImplementedError("Need to implement for Task 3.1")
 
     return njit(_map, parallel=True)  # type: ignore
@@ -209,7 +210,14 @@ def tensor_zip(
         b_strides: Strides,
     ) -> None:
         # TODO: Implement for Task 3.1.
-        raise NotImplementedError("Need to implement for Task 3.1")
+        # check if out, a, b are stride-aligned
+        if out_strides == a_strides and out_strides == b_strides:
+            for i in prange(len(out)):
+                out[i] = fn(a[i], b[i])
+        else:
+            for i in prange(len(out)):
+                out_index = to_index(i, out_shape, out_strides)
+                out[i] = fn(a[i], b[i])
 
     return njit(_zip, parallel=True)  # type: ignore
 
