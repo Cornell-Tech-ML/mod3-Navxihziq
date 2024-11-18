@@ -89,10 +89,11 @@ def to_index(ordinal: int, shape: Shape, out_index: OutIndex) -> None:
 
     """
     # TODO: Implement for Task 2.1.
-    cur_ordinal = ordinal
     reversed_shape = shape[::-1]
-    for i, s in enumerate(reversed_shape):
-        out_index[-i - 1] = cur_ordinal % s
+    dim = len(reversed_shape)
+    cur_ordinal = ordinal
+    for idx, s in enumerate(reversed_shape):
+        out_index[dim - idx - 1] = cur_ordinal % s
         cur_ordinal //= s
 
 
