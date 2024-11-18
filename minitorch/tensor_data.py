@@ -91,10 +91,10 @@ def to_index(ordinal: int, shape: Shape, out_index: OutIndex) -> None:
     # TODO: Implement for Task 2.1.
     reversed_shape = shape[::-1]
     dim = len(reversed_shape)
-    cur_ordinal = ordinal
+    cur_ordinal: int = int(ordinal)
     for idx, s in enumerate(reversed_shape):
         out_index[dim - idx - 1] = cur_ordinal % s
-        cur_ordinal //= s
+        cur_ordinal = cur_ordinal // s
 
 
 def broadcast_index(
