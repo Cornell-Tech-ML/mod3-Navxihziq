@@ -334,8 +334,20 @@ def _tensor_matrix_multiply(
     b_batch_stride = b_strides[0] if b_shape[0] > 1 else 0
 
     # TODO: Implement for Task 3.2.
-    assert a_shape[-1] == b_shape[-2]
-    
+    for i in prange(len(out)):
+        # disassemble the index
+        out_batch = i // (out_shape[-2] * out_shape[-1])
+        out_i = (i // out_shape[-1]) % out_shape[-2]
+        out_j = i % out_shape[-1]
+
+        a_pos = out_batch * a_batch_stride + out_i * a_strides[-2] + 0
+        b_pos = out_batch * b_batch_stride + 0 + out_j * b_strides[-1]
+
+        acc = 0.0
+        for j in range(a_shape[-1]):    # iterate along the shared dim
+            acc += (a_storage[a_pos + j * a_strides[-1]] *
+                    b_storage[b_pos + j * b_strides[-2]])
+        out[i] = acc
 
 
 tensor_matrix_multiply = njit(_tensor_matrix_multiply, parallel=True)
