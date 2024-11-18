@@ -334,7 +334,8 @@ def _tensor_matrix_multiply(
     b_batch_stride = b_strides[0] if b_shape[0] > 1 else 0
 
     # TODO: Implement for Task 3.2.
-    raise NotImplementedError("Need to implement for Task 3.2")
+    assert a_shape[-1] == b_shape[-2]
+    
 
 
 tensor_matrix_multiply = njit(_tensor_matrix_multiply, parallel=True)

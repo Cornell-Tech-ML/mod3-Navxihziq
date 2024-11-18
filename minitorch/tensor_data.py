@@ -47,7 +47,10 @@ def index_to_position(index: Index, strides: Strides) -> int:
 
     """
     # TODO: Implement for Task 2.1.
-    return int(sum(i * s for i, s in zip(index, strides)))
+    total = 0
+    for i, s in zip(index, strides):
+        total += i * s
+    return int(total)
 
 
 def to_index_from_strides(ordinal: int, strides: Strides, out_index: OutIndex) -> None:
