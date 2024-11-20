@@ -139,26 +139,12 @@ def log(x: float) -> float:
 
 def exp(x: float) -> float:
     """Compute the exponential of the input number."""
-    # return math.exp(x)
-    if x < 0:
-        return 1 / exp(-x)
-
-    result = 1.0
-    term = 1.0
-    n = 1
-
-    while term > 1e-15:  # Adjust this threshold for desired precision
-        term *= x / n
-        result += term
-        n += 1
-
-    return result
+    # TODO: might cause precision issues
+    return math.exp(x)
 
 
 def inv(x: float) -> float:
-    """Compute the inverse of the input number.
-    Throw ValueError if x == 0.
-    """
+    """Compute the inverse of the input number."""
     if x == 0:
         raise ValueError("x must be non-zero")
     return 1.0 / x
@@ -175,7 +161,7 @@ def inv_back(x: float, d: float) -> float:
     """Compute the derivative of the inverse function with respect to the first argument times the second."""
     if x == 0:
         raise ValueError("x must be non-zero")
-    return -d * inv(x) ** 2
+    return -d * (1.0 / x) ** 2
 
 
 def relu_back(x: float, d: float) -> float:

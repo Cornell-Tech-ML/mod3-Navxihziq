@@ -95,7 +95,7 @@ class Tensor:
             self.name = str(self.unique_id)
 
         self.f = backend
-        # self.dim = len(self.shape)  # TODO: Check if this is necessary
+        self.dims = len(self.shape)  # TODO: Check if this is necessary
         self.size = int(operators.prod(self.shape))  # TODO: Check if this is necessary
 
     def requires_grad_(self, x: bool) -> None:
