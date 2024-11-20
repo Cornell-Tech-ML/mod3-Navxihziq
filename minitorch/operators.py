@@ -130,10 +130,16 @@ def relu(x: float) -> float:
 
 def log(x: float) -> float:
     """Compute the logarithm of the input number.
-    Throw ValueError if x <= 0.
+
+    Args:
+    ----
+        x (float): Input value.
+
+    Returns:
+    -------
+        float: The logarithm of x.
+
     """
-    if x <= 0:
-        raise ValueError("x must be positive")
     return math.log(x)
 
 
@@ -145,22 +151,16 @@ def exp(x: float) -> float:
 
 def inv(x: float) -> float:
     """Compute the inverse of the input number."""
-    if x == 0:
-        raise ValueError("x must be non-zero")
     return 1.0 / x
 
 
 def log_back(x: float, d: float) -> float:
     """Compute the derivative of the log function with respect to the first argument times the second."""
-    if x <= 0:
-        raise ValueError("x must be positive")
     return d * inv(x)
 
 
 def inv_back(x: float, d: float) -> float:
     """Compute the derivative of the inverse function with respect to the first argument times the second."""
-    if x == 0:
-        raise ValueError("x must be non-zero")
     return -d * (1.0 / x) ** 2
 
 
