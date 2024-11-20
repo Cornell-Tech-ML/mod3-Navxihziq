@@ -179,8 +179,8 @@ def tensor_map(
         out_shape = out_shape.astype(np.int32)
         in_shape = in_shape.astype(np.int32)
         for i in prange(len(out)):
-            out_index = np.empty(len(out_shape), dtype=np.int32)  # buffer
-            in_index = np.empty(len(in_shape), dtype=np.int32)  # buffer
+            out_index = np.zeros(len(out_shape), dtype=np.int32)  # buffer
+            in_index = np.zeros(len(in_shape), dtype=np.int32)  # buffer
             to_index(i, out_shape, out_index)
             broadcast_index(out_index, out_shape, in_shape, in_index)
             out[i] = fn(in_storage[index_to_position(in_index, in_strides)])
@@ -239,9 +239,9 @@ def tensor_zip(
         #         out[i] = fn(a_storage[i], b_storage[i])
         # else:
         for i in prange(len(out)):
-            out_index = np.empty(len(out_shape), dtype=np.int32)  # buffer
-            a_index = np.empty(len(a_shape), dtype=np.int32)  # buffer
-            b_index = np.empty(len(b_shape), dtype=np.int32)  # buffer
+            out_index = np.zeros(len(out_shape), dtype=np.int32)  # buffer
+            a_index = np.zeros(len(a_shape), dtype=np.int32)  # buffer
+            b_index = np.zeros(len(b_shape), dtype=np.int32)  # buffer
             to_index(i, out_shape, out_index)
             broadcast_index(out_index, out_shape, a_shape, a_index)
             broadcast_index(out_index, out_shape, b_shape, b_index)
@@ -290,8 +290,8 @@ def tensor_reduce(
         out_shape = out_shape.astype(np.int32)
         a_shape = a_shape.astype(np.int32)
         for i in prange(len(out)):
-            out_index = np.empty(len(out_shape), dtype=np.int32)  # buffer
-            a_index = np.empty(len(a_shape), dtype=np.int32)  # buffer
+            out_index = np.zeros(len(out_shape), dtype=np.int32)  # buffer
+            a_index = np.zeros(len(a_shape), dtype=np.int32)  # buffer
             to_index(i, out_shape, out_index)
             # copy the out_index to the a_index (except for the reduce dim)
             for j in range(len(a_shape) - 1):
