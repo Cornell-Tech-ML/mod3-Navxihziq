@@ -1,3 +1,7 @@
+# set simulator
+# os.environ["NUMBA_ENABLE_CUDASIM"] = "0"
+
+
 import random
 from typing import Callable, Dict, Iterable, List, Tuple
 
@@ -232,6 +236,7 @@ if numba.cuda.is_available():
         for i in range(2):
             for j in range(2):
                 assert_close(z[i, j], z2[i, j])
+                # assert_close(z[i, j], z2._storage[2 * i + j])
 
     @pytest.mark.task3_4
     def test_mul_practice4() -> None:

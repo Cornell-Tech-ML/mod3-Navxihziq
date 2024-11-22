@@ -97,12 +97,9 @@ class Add(Function):
 
 class All(Function):
     @staticmethod
-    def forward(ctx: Context, a: Tensor) -> Tensor:  # noqa: D102
+    def forward(ctx: Context, a: Tensor, dim: Tensor) -> Tensor:  # noqa: D102
         """Return 1 if all are true"""
-        # if dim is not None:
-        #     return a.f.mul_reduce(a, int(dim.item()))
-        # else:
-        return a.f.mul_reduce(a.contiguous().view(int(operators.prod(a.shape))), 0)
+        return a.f.mul_reduce(a, int(dim.item()))
 
 
 # TODO: Implement for Task 2.3.
@@ -172,22 +169,14 @@ class Sum(Function):
     """Note: This is not Add"""
 
     @staticmethod
-    def forward(ctx: Context, a: Tensor, dim: Tensor | None = None) -> Tensor:  # noqa: D102
+    def forward(ctx: Context, a: Tensor, dim: Tensor) -> Tensor:  # noqa: D102
         ctx.save_for_backward(a.shape, dim)
-        if dim is not None:
-            return a.f.add_reduce(a, int(dim.item()))
-        else:
-            return a.f.add_reduce(a.contiguous().view(int(operators.prod(a.shape))), 0)
+        return a.f.add_reduce(a, int(dim.item()))
 
     @staticmethod
-    def backward(ctx: Context, grad_output: Tensor) -> Tensor | Tuple[Tensor, Tensor]:  # noqa: D102
-        in_shape, dim = ctx.saved_values
-        grad_input = ones(in_shape) * grad_output
-
-        if dim is None:
-            return grad_input
-        else:
-            return grad_input, zeros((1,))
+    def backward(ctx: Context, grad_output: Tensor) -> Tuple[Tensor, float]:  # noqa: D102
+        a_shape, dim = ctx.saved_values
+        return grad_output, 0.0
 
 
 class LT(Function):

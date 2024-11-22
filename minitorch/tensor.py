@@ -330,8 +330,11 @@ class Tensor:
     def __rmul__(self, b: TensorLike) -> Tensor:
         return Mul.apply(self._ensure_tensor(b), self)
 
-    def all(self) -> Tensor:  # noqa: D102
-        return All.apply(self)
+    def all(self, dim: Optional[int] = None) -> Tensor:  # noqa: D102
+        if dim is None:
+            return All.apply(self.contiguous().view(self.size), self._ensure_tensor(0))
+        else:
+            return All.apply(self, self._ensure_tensor(dim))
 
     def is_close(self, b: TensorLike) -> Tensor:  # noqa: D102
         return IsClose.apply(self, self._ensure_tensor(b))
@@ -348,19 +351,21 @@ class Tensor:
     def exp(self) -> Tensor:  # noqa: D102
         return Exp.apply(self)
 
-    def sum(self, dim: int | None = None) -> Tensor:  # noqa: D102
+    def sum(self, dim: Optional[int] = None) -> Tensor:  # noqa: D102
         if dim is None:
-            return Sum.apply(self)
+            return Sum.apply(
+                self.contiguous().view(self.size), self._ensure_tensor(int(0))
+            )
         else:
             # ensure dim is a tensor
             dim_tensor: Tensor = self._ensure_tensor(dim)
             return Sum.apply(self, dim_tensor)
 
-    def mean(self, dim: int | None = None) -> Tensor:  # noqa: D102
+    def mean(self, dim: Optional[int] = None) -> Tensor:  # noqa: D102
         if dim is None:
-            return self.sum() * self._ensure_tensor(1 / self.size)
+            return self.sum() / self.size
         else:
-            return self.sum(dim) * self._ensure_tensor(1 / self.shape[dim])
+            return self.sum(dim) / int(self.shape[dim])
 
     def permute(self, *dims: int) -> Tensor:  # noqa: D102
         dims_tensor: Tensor = tensor(dims)

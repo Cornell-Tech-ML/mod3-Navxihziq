@@ -50,7 +50,7 @@ def index_to_position(index: Index, strides: Strides) -> int:
     total = 0
     for i, s in zip(index, strides):
         total += i * s
-    return int(total)
+    return total
 
 
 def to_index_from_strides(ordinal: int, strides: Strides, out_index: OutIndex) -> None:
@@ -119,8 +119,14 @@ def broadcast_index(
 
     """
     # TODO: Implement for Task 2.2.
-    for idx, b_idx in enumerate(big_index[-len(shape) :]):
-        out_index[idx] = b_idx if big_shape[-len(shape) + idx] == shape[idx] else 0
+    # for idx, b_idx in enumerate(big_index[-len(shape) :]):
+    #     out_index[idx] = b_idx if big_shape[-len(shape) + idx] == shape[idx] else 0
+    for i, s in enumerate(shape):
+        if s > 1:
+            out_index[i] = big_index[i + len(big_shape) - len(shape)]
+        else:
+            out_index[i] = 0
+    return None
 
 
 def shape_broadcast(shape1: UserShape, shape2: UserShape) -> UserShape:
