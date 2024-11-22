@@ -697,59 +697,29 @@ Epoch 400 loss 0.49098038753028084 correct 50 time 586.69s time per epoch 1.46s
 
 Please see [file](./assets/xor-cpu.pdf) for the entire log.
 
-**Average Time per Epoch**: 3.84s
+**Average Time per Epoch**: 0.49s
 
 ```bash
-Epoch  0  loss  5.754644474358288 correct 38 time 32.90s time per epoch 32.90s
-Epoch  10  loss  4.668400473097102 correct 44 time 163.09s time per epoch 14.83s
-Epoch  20  loss  4.186727796901085 correct 39 time 287.90s time per epoch 13.71s
-Epoch  30  loss  2.368754801666736 correct 44 time 459.23s time per epoch 14.81s
-Epoch  40  loss  2.93651503127627 correct 43 time 637.10s time per epoch 15.54s
-Epoch  50  loss  2.767497908824362 correct 46 time 800.40s time per epoch 15.69s
-Epoch  60  loss  2.883728761749026 correct 47 time 937.66s time per epoch 15.37s
-Epoch  70  loss  3.599298356614441 correct 45 time 1082.65s time per epoch 15.25s
-Epoch  80  loss  4.630686163809956 correct 44 time 1265.51s time per epoch 15.62s
-Epoch  90  loss  1.5896193515560675 correct 47 time 1431.61s time per epoch 15.73s
-Epoch  100  loss  1.0845923931480963 correct 45 time 1542.42s time per epoch 15.27s
-Epoch  110  loss  2.0592190242254644 correct 46 time 1605.49s time per epoch 14.46s
-Epoch  120  loss  4.080515545245338 correct 46 time 1673.11s time per epoch 13.83s
-Epoch  130  loss  1.6710399269940734 correct 47 time 1739.91s time per epoch 13.28s
-Epoch  140  loss  2.4290992359368433 correct 47 time 1802.28s time per epoch 12.78s
-Epoch  150  loss  2.621350065889716 correct 48 time 1856.94s time per epoch 12.30s
-Epoch  160  loss  1.6262897653763002 correct 48 time 1864.92s time per epoch 11.58s
-Epoch  170  loss  1.7120860103780235 correct 47 time 1865.50s time per epoch 10.91s
-Epoch  180  loss  2.8526594307144286 correct 47 time 1866.07s time per epoch 10.31s
-Epoch  190  loss  1.2219833369771198 correct 47 time 1866.65s time per epoch 9.77s
-Epoch  200  loss  0.8459799766361761 correct 48 time 1867.22s time per epoch 9.29s
-Epoch  210  loss  1.5358092897054958 correct 47 time 1867.80s time per epoch 8.85s
-Epoch  220  loss  2.394709260487286 correct 47 time 1868.37s time per epoch 8.45s
-Epoch  230  loss  3.4884482310512106 correct 48 time 1868.95s time per epoch 8.09s
-Epoch  240  loss  1.7850805400288865 correct 47 time 1869.52s time per epoch 7.76s
-Epoch  250  loss  1.5664356352639803 correct 48 time 1870.10s time per epoch 7.45s
-Epoch  260  loss  0.9277176434978458 correct 47 time 1870.67s time per epoch 7.17s
-Epoch  270  loss  3.6335612788588625 correct 43 time 1871.25s time per epoch 6.90s
-Epoch  280  loss  0.6740529377526386 correct 47 time 1871.82s time per epoch 6.66s
-Epoch  290  loss  1.3462468279356623 correct 48 time 1872.40s time per epoch 6.43s
-Epoch  300  loss  1.2819988161359424 correct 47 time 1873.01s time per epoch 6.22s
-Epoch  310  loss  0.30934023679710415 correct 48 time 1873.58s time per epoch 6.02s
-Epoch  320  loss  0.5730039262682568 correct 48 time 1874.16s time per epoch 5.84s
-Epoch  330  loss  3.141696974442069 correct 48 time 1874.74s time per epoch 5.66s
-Epoch  340  loss  1.6656871984143224 correct 45 time 1875.32s time per epoch 5.50s
-Epoch  350  loss  0.9522340918295624 correct 48 time 1875.89s time per epoch 5.34s
-Epoch  360  loss  1.3509611464609221 correct 49 time 1876.46s time per epoch 5.20s
-Epoch  370  loss  1.6823132352355032 correct 48 time 1877.04s time per epoch 5.06s
-Epoch  380  loss  0.28935126952880974 correct 48 time 1877.62s time per epoch 4.93s
-Epoch  390  loss  2.7017300202556402 correct 49 time 1878.19s time per epoch 4.80s
-Epoch  400  loss  1.4929511628561354 correct 49 time 1878.76s time per epoch 4.69s
-Epoch  410  loss  1.0444300969019389 correct 48 time 1879.34s time per epoch 4.57s
-Epoch  420  loss  2.4890737490472996 correct 49 time 1879.92s time per epoch 4.47s
-Epoch  430  loss  2.2849609168615848 correct 49 time 1880.49s time per epoch 4.36s
-Epoch  440  loss  0.9742376367495362 correct 49 time 1881.06s time per epoch 4.27s
-Epoch  450  loss  0.061624338774118506 correct 49 time 1881.63s time per epoch 4.17s
-Epoch  460  loss  0.11101031719580752 correct 49 time 1882.21s time per epoch 4.08s
-Epoch  470  loss  0.3314695916593982 correct 49 time 1882.78s time per epoch 4.00s
-Epoch  480  loss  1.0817226728171065 correct 49 time 1883.35s time per epoch 3.92s
-Epoch  490  loss  2.3290008785945524 correct 49 time 1883.93s time per epoch 3.84s
+Epoch  0  loss  8.06742190538398 correct 29 time 11.22s time per epoch 11.22s
+Epoch  10  loss  5.654132056778902 correct 44 time 11.79s time per epoch 1.07s
+Epoch  20  loss  3.834683865290099 correct 44 time 12.35s time per epoch 0.59s
+Epoch  30  loss  3.584997235674925 correct 42 time 12.91s time per epoch 0.42s
+Epoch  40  loss  7.205620297719436 correct 41 time 13.48s time per epoch 0.33s
+Epoch  50  loss  2.200592092267211 correct 46 time 14.04s time per epoch 0.28s
+Epoch  60  loss  3.088007024081709 correct 46 time 14.61s time per epoch 0.24s
+Epoch  70  loss  3.5738075145605124 correct 46 time 15.17s time per epoch 0.21s
+Epoch  80  loss  3.626736669513203 correct 47 time 15.74s time per epoch 0.19s
+Epoch  90  loss  4.617547072738027 correct 44 time 16.30s time per epoch 0.18s
+Epoch  100  loss  3.3424449655501336 correct 45 time 16.87s time per epoch 0.17s
+Epoch  110  loss  4.085553419420048 correct 44 time 17.44s time per epoch 0.16s
+Epoch  120  loss  1.765425022806217 correct 48 time 18.00s time per epoch 0.15s
+Epoch  130  loss  2.0397762016268164 correct 48 time 18.58s time per epoch 0.14s
+Epoch  140  loss  1.0319972417930088 correct 49 time 19.14s time per epoch 0.14s
+Epoch  150  loss  2.149364869681204 correct 49 time 19.70s time per epoch 0.13s
+Epoch  160  loss  2.378956414020976 correct 48 time 20.27s time per epoch 0.13s
+Epoch  170  loss  1.7776099272965888 correct 50 time 20.83s time per epoch 0.12s
+Epoch  180  loss  1.5598084190035668 correct 50 time 47.62s time per epoch 0.26s
+Epoch  190  loss  1.0765102456740028 correct 49 time 93.70s time per epoch 0.49s
 ```
 
 ### Larger Model
